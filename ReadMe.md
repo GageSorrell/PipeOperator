@@ -12,7 +12,7 @@ The pipe operator, implemented via [`tsover`](https://software-mansion-labs.gith
 
 | Package  | Version     |
 |---------:|:------------|
-| NodeJS   | `>=24.15.0` |
+|   NodeJS | `>=24.15.0` |
 | `tsover` | `>=6.0.0`   |
 
 Your project must also be set up to work with `tsover`.
