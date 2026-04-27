@@ -8,7 +8,6 @@
 import type { TFunction, TLeft } from "./PipeOperator.Internal.Types";
 import { Operator } from "tsover-runtime";
 
-// export class PipedFunction<ArgumentType extends Array<unknown>, ThisReturnType>
 export class PipedFunction<ArgumentVectorType extends Array<unknown>, ThisReturnType>
 {
     public constructor(

@@ -46,7 +46,7 @@
     "typescript": "npm:tsover@^6.0.0"
   },
   "dependencies": {
-    "@sorrell/functional": "^1.0.9",
+    "@sorrell/functional": "^1.0.10",
     "tsover-runtime": "^0.0.6"
   }
 }

@@ -7,7 +7,7 @@
 
 import { type _, Curry, type TArgumentVectorWithCurry, type TCurriedArgumentVector, type TCurriedFunction } from "@sorrell/functional";
 import { PipedFunction } from "./PipeOperator.Internal";
-import type { Temp, TFunction } from "./PipeOperator.Internal.Types";
+import type { TFunction } from "./PipeOperator.Internal.Types";
 
 /**
  * Wrap functions with this to pass them to the pipe operator.
@@ -57,7 +57,7 @@ export function Pipe<
  * @param CurriedArgumentVector - The argument vector containing fixed values, and {@link _} to mark arguments
  * as open in the resulting function.
  * 
- * @returns {PipedFunction<Temp<TCurriedArgumentVector<Parameters<typeof Function>, typeof CurriedArgumentVector>, Parameters<typeof Function>>, ReturnType<typeof Function>>}
+ * @returns {PipedFunction<TCurriedArgumentVector<Parameters<typeof Function>, typeof CurriedArgumentVector>>, ReturnType<typeof Function>>}
  * The function, wrapped in an internal class that overloads the `%` operator.
  * 
  * @example
@@ -85,7 +85,7 @@ export function Pipe<
 >(
     Function: TFunction<ArgumentVectorType, ThisReturnType>,
     ...CurriedArgumentVector: CurriedVectorType
-): PipedFunction<Temp<TCurriedArgumentVector<Parameters<typeof Function>, typeof CurriedArgumentVector>, Parameters<typeof Function>>, ReturnType<typeof Function>>
+): PipedFunction<TCurriedArgumentVector<Parameters<typeof Function>, typeof CurriedArgumentVector>, ReturnType<typeof Function>>
 export function Pipe<
     ArgumentVectorType extends Array<unknown>,
     ThisReturnType,
@@ -105,21 +105,3 @@ export function Pipe<
         return new PipedFunction(Function);
     }
 }
-
-function Test()
-{
-    "use tsover";
-    // import { Pipe as P } from "@sorrell/pipe-operator";
-
-    const Value: number = 40;
-
-    const Product = (...Values: Array<number>): number =>
-        Values.reduce((Prev, Curr) => Prev * Curr, 1);
-
-    const FormatDollar = (In: number): string => `$${ In }`;
-
-    const Price = Value % Pipe(Product, 3, 2, 5) % Pipe(FormatDollar);
-    console.log(Price);
-}
-
-Test();

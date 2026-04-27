@@ -6,4 +6,3 @@
  */
 
 export * from "./PipeOperator.ts";
-// export * from "./PipeOperator.Types.ts";
