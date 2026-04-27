@@ -26,9 +26,7 @@ Once the [requirements](#requirements) are met, just install,
 npm install @sorrell/pipe-operator
 ```
 
-## Examples
-
-### Currying
+## Example
 
 ```typescript
 "use tsover";
