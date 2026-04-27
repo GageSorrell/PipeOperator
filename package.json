@@ -1,0 +1,52 @@
+{
+  "name": "@sorrell/pipe-operator",
+  "version": "1.0.1",
+  "description": "Implements the pipe operator as an overloaded operator in TypeScript.",
+  "exports": {
+    ".": {
+      "default": "./Distribution/ESM/index.js",
+      "require": "./Distribution/CJS/index.js",
+      "import": "./Distribution/ESM/index.js",
+      "types": "./Distribution/Types/index.d.ts"
+    }
+  },
+  "overrides": {
+    "typescript": "npm:tsover@^6.0.0"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build:js": "node esbuild.config.mts",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build": "npm run build:js && npm run build:types"
+  },
+  "keywords": [
+    "pipe",
+    "operator",
+    "overloaded",
+    "overloading",
+    "functional",
+    "sorrell",
+    "typescript",
+    "ts",
+    "fp",
+    "functional-programming"
+  ],
+  "private": false,
+  "author": {
+    "email": "gage@sorrell.sh",
+    "name": "Gage Sorrell",
+    "url": "https://sorrell.sh"
+  },
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "esbuild": "^0.28.0",
+    "tsover": "^6.0.0",
+    "typescript": "npm:tsover@^6.0.0"
+  },
+  "dependencies": {
+    "@sorrell/functional": "^1.0.9",
+    "tsover-runtime": "^0.0.6"
+  }
+}
